@@ -36,7 +36,7 @@ class SearchTitlePage extends Page {
     // await this.btnSubmit.click();
   }
 
-  async searchByTitleName() {
+  async clickOnSearch() {
     await this.btnSubmit.click();
   }
   async login(username, password) {
