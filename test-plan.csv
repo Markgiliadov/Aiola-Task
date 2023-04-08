@@ -1,0 +1,124 @@
+IEEE289
+Mark Giliadov, QA.
+
+Test Plan:
+
+    1. Introduction:
+        This test plan is designed to test IMDB's Advanced Title Search version 2.8 functionalities and features.
+        Specifically, the following fields: 
+        Title, Title Type, Release Date, User Rating and Number of Votes.
+
+        The rest of the features which will not be tested are given with their default value. Include:
+        Genres, Title Groups, Title Data, Companies, Instant Watch Options, US Certificates, Color Info, Countries, Keyword, Languages, Filming Locations, 
+        Popularity, PlotCast/Crew, Runtime, Sound Mix, Your Ratings, In Theaters, Adult Titles, Display Options.
+
+        Bugs if any are found, will be saved onto our bug tracking system (JIRA). 
+
+        Responsabilities:
+            QA engineer (executer) - Markg - Will execute manual/automated tests that are attached to this test plan and report a log file to Veronica
+            QA Manager (Team leader) - Veronicak - Will receive log file if any bugs are found, decide how to continue (RnD, fixes in the qa department, changing the test plan)
+
+    2. Features to be tested:
+        a. Advanced search by Title
+        b. Advanced search by Title Type
+        c. Advanced search by Release Date
+        d. Advanced search by User Rating
+        e. Advanced search by Number of Votes
+
+    3. Features not to be tested:
+        - Advanced search by :  Genres, Title Groups, Title Data, Companies, Instant Watch Options, US Certificates, Color Info, Countries, Keyword, Languages, Filming Locations, 
+        Popularity, PlotCast/Crew, Runtime, Sound Mix, Your Ratings, In Theaters, Adult Titles and Display Options.
+
+    4. Test Items:
+        a. Advanced search by Title:
+            1. Type of input - string, unlimited size.
+            2. The queried data is as described by the input-Title in the field (ex. if title = 'john' data will include movies that contain the word 'john' in their title).
+                2.1. Verify that the search results are displayed according to the Title search criteria:
+                    a. Enter a valid title in the Title field.
+                    b. Click on the "Search" button.
+                    c. Verify that the search results only include titles that contain the entered text in the title.
+        b. Advanced search by Title Type:
+            1. Type of input - enum (string), one of the predescribed options presented.
+            2. The queried data is as described by the input-Title Type in the field.(ex. if title type = 'Feature Film' data will include movies that have the tag of 'Feature Film').
+                2.1. Verify that the search results are displayed according to the Title Type search criteria:
+                    a. Select a valid Title Type from the drop-down menu.
+                    b. Click on the "Search" button.
+                    c. Verify that the search results only include titles that match the selected Title Type.
+        c. Advanced search by Release Date:
+            1. Type of input - Date, according to date format. 
+            2. The queried data is as described by the input-Release Date in the field.(ex. if release date = '05/05/1992' to '05/11/2022' data will include movies that were released between these dates).
+                2.1. Verify that the search results are displayed according to the Release Date search criteria:
+                    a. Enter a valid release date in the Release Date field.
+                    b. Click on the "Search" button.
+                    c. Verify that the search results only include titles that were released on or after the entered date.
+        d. Advanced search by User Rating:
+            1. Type of input - double, one of the predescribed options.
+            2. The queried data is as described by the input-User Rating in the field.(ex. if User Rating = '1.5' to '6.5' data will include movies that are rated accordingly).
+                2.1. Verify that the search results are displayed according to the User Rating search criteria:
+                    a. Select a valid User Rating from the drop-down menu.
+                    b. Click on the "Search" button.
+                    c. Verify that the search results only include titles that have a user rating equal to or higher than the selected rating.
+        e. Advanced search by Number of Votes:
+            1. Type of input - integer, unlimited size.
+            2. The queried data is as described by the input-Number of Votes in the field.(ex. if Number of Votes = '100' to '3000' data will include movies where the number of people that voted are dependant accordingly on this value).
+                2.1. Verify that the search results are displayed according to the Number of Votes search criteria:
+                    a. Enter a valid number of votes in the Number of Votes field.
+                    b. Click on the "Search" button.
+                    c. Verify that the search results only include titles that have an equal or higher number of votes than the entered value.
+        f. Advanced search by multiple search criterias (optional dependant on time of project):
+            1. Verify that the search results are displayed according to multiple search criteria:
+                    a. Enter values in multiple search fields.
+                    b. Click on the "Search" button.
+                    c. Verify that the search results only include titles that match all the entered search criteria.
+    
+    5. Test approaches:
+        Testing will be executed manually and black box. As per choice, for testing data we will be implementing according to equivalent classes and rules.
+        The process of creating test scenarios we will use the technique of State-Transition. In order to save time, for regression testing we will gradually
+        automate the basic and stable functionalities and features.
+        When receiving a new build for testing, we will always start with Smoke Tests. 
+    
+    6. Pass/Fail Item criteria (Acceptance criteria):
+        In the process of testing items, that are not in state: Not Fixed, defects with priorities such as:
+        Blocker, Major, Critical and medium. The item must contain no defects in it's testing to continue.
+        Every item needs to be tested in a minimum of 3 environments (ex. Android 12.1, IOS 8.6, Windows 10).
+    
+    7. Suspension/Resumption criteria:
+        If the new build does not pass Smoke testing successfully - We will suspend the process of testing the new build.
+        If the new build passed Smoke testing, but we are experiencing performance issues, with the new build, compared to the old one.
+        Could be: crashes, unstable build in general. For example, crashing more than it used to crash before. Or, if we have more than 2 defects with priority: Blocker
+        we will suspend the testing as well.
+    
+    8. Tester tasks: 
+        Testers will write test documentation ( Test plan, Test case, Checklists), once a week a test report will be generated and delivered.
+        When finding defects, testers will inspect and monitor them, also they will track and log the results in the Bug Tracking System.
+    
+    9. Environmental needs:
+        In a form of hardware or software, to implement the section where we described a need for minimum 3 environments:
+        Android, IOS and windows should be provided in some form or another.
+    
+    10. Staff and training needs:
+        Access to backend results(searched queries API of some sort).
+    
+    11. Test delivarables:
+        Produce a test report with metrics according to their respective priorities for the bugs that we have detected. We will also provided
+        detailed checklists that describe how exactly we tested, in what environments and which functionalities we are testing. A full list of 
+        the detected bugs, where you can see which feature/functionality is related to the specific defect will all be presented in our Bug Tracking system.
+        // Automation prerequisits.
+    
+    12. Schedule:
+        04/04/2023 - Requirements Analysis + Test design 
+        05/04/2023 - First testing session + Regression testing
+        06/04/2023 - Receiving tests and results + submitting project
+    
+    13. Risks:
+        If until the 05/04/2023 we will not receive a new build, the process will not be completed, as we do not have enough time to test.
+    
+    14. Responsabilities:
+        Create test documents - Mark - QA engineer
+        Create test plan - Mark - QA engineer
+        Auto - tests - Mark - QA engineer
+        Test reports - Mark - QA engineer
+    
+    15. Approvals:
+        Giliadov Mark, QA engineer, 06/04/2023
+        Veronica Koifman, QA Team lead, 06/04/2023
