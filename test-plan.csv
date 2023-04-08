@@ -108,7 +108,9 @@ Test Plan:
     12. Schedule:
         04/04/2023 - Requirements Analysis + Test design 
         05/04/2023 - First testing session + Regression testing
-        06/04/2023 - Receiving tests and results + submitting project
+        06/04/2023 - Automation development + Basic assertions
+        07/04/2023 - Documentation + Git 
+        08/04/2023 - Receiving tests and results + submitting project
     
     13. Risks:
         If until the 05/04/2023 we will not receive a new build, the process will not be completed, as we do not have enough time to test.
